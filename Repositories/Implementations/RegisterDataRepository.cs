@@ -22,7 +22,7 @@ namespace ModbusIndustrialAPI.Repositories.Implementations
     }
 
     // 根据ID获取数据
-    public async Task<RegisterData> GetByIdAsync(int id)
+    public async Task<RegisterData?> GetByIdAsync(int id)
     {
       return await _context.RegisterData.FindAsync(id);
     }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ecwrhQ16gQ8=",
+  "dgSpecHash": "no0ZjPAjEiE=",
   "success": true,
   "projectFilePath": "/Users/yaozewei/Documents/learn/ModbusWebApi/ModbusWebApi.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,8 @@
     "/Users/yaozewei/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/Users/yaozewei/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/Users/yaozewei/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/yaozewei/.nuget/packages/polly/7.2.3/polly.7.2.3.nupkg.sha512",
+    "/Users/yaozewei/.nuget/packages/polly.extensions.http/3.0.0/polly.extensions.http.3.0.0.nupkg.sha512",
     "/Users/yaozewei/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/Users/yaozewei/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/Users/yaozewei/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
