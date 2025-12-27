@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ModbusWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9f6254083cc5d2c36dc82a50f7c981f7bb3ab13")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8044c1e187be135d1f3a708d3847b5b3ef183a3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ModbusWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ModbusWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -36,6 +36,10 @@ using (var scope = app.Services.CreateScope())
   var context = scope.ServiceProvider.GetRequiredService<ModbusDbContext>();
   context.Database.EnsureCreated(); // 确保数据库已创建
 
+  // 启用WAL模式
+  await context.Database.OpenConnectionAsync();
+  await context.Database.ExecuteSqlRawAsync("PRAGMA journal_mode=WAL;");
+
   var modbusService = scope.ServiceProvider.GetRequiredService<IModbusService>();
   modbusService.ReadModbusData(); // 启动时读取一次数据
 }
