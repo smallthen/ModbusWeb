@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "WzwoGHdXQxlCEzncHEyHatk3uEq8Yr5X72FBectijv8=",
+  "Source": "ModbusWebApi",
+  "BasePath": "_content/ModbusWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
