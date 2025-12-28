@@ -142,3 +142,5 @@
 /Users/yaozewei/Documents/learn/ModbusWebApi/bin/Debug/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll
 /Users/yaozewei/Documents/learn/ModbusWebApi/bin/Debug/net8.0/runtimes/win-x64/native/libSkiaSharp.dll
 /Users/yaozewei/Documents/learn/ModbusWebApi/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll
+/Users/yaozewei/Documents/learn/ModbusWebApi/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/yaozewei/Documents/learn/ModbusWebApi/bin/Debug/net8.0/System.Net.WebSockets.WebSocketProtocol.dll

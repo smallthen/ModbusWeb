@@ -1,47 +1,44 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
 using ModbusIndustrialAPI.Services;
-using ModbusIndustrialAPI.Data;
-using ModbusIndustrialAPI.Repositories.Interfaces;
-using ModbusIndustrialAPI.Repositories.Implementations;
+using ModbusIndustrialAPI.Hubs;
 
-// 创建Web应用程序生成器
 var builder = WebApplication.CreateBuilder(args);
 
-// 添加控制器支持
+// Add services to the container.
 builder.Services.AddControllers();
-
-// 配置SQLite数据库
-builder.Services.AddDbContext<ModbusDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ??
-                     "Data Source=modbus.db"));
-
-// 注册仓储服务（接口到实现的映射）
-builder.Services.AddScoped<IRegisterDataRepository, RegisterDataRepository>();
-
-// 注册Modbus服务为单例
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IModbusService, ModbusTcpService>();
+
+// 添加SignalR服务
+builder.Services.AddSignalR();
+
+// 添加Modbus数据发布服务
+builder.Services.AddSingleton<ModbusDataPublisher>();
 
 var app = builder.Build();
 
-// 配置中间件
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+  app.UseSwagger();
+  app.UseSwaggerUI();
+}
+
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthorization();
+
 app.MapControllers();
 
-// 启动时初始化数据库并读取Modbus数据
+// 映射SignalR Hub
+app.MapHub<ModbusHub>("/modbushub");
+
+// 启动Modbus数据采集服务
 using (var scope = app.Services.CreateScope())
 {
-  var context = scope.ServiceProvider.GetRequiredService<ModbusDbContext>();
-  context.Database.EnsureCreated(); // 确保数据库已创建
-
-  // 启用WAL模式
-  await context.Database.OpenConnectionAsync();
-  await context.Database.ExecuteSqlRawAsync("PRAGMA journal_mode=WAL;");
-
-  var modbusService = scope.ServiceProvider.GetRequiredService<IModbusService>();
-  modbusService.ReadModbusData(); // 启动时读取一次数据
+  var modbusDataPublisher = scope.ServiceProvider.GetRequiredService<ModbusDataPublisher>();
+  modbusDataPublisher.StartDataCollection();
 }
 
 app.Run();
